@@ -1,4 +1,4 @@
-class Api{
+class API{
     #secure;
 
     constructor(url, method = 'GET'){
@@ -21,14 +21,12 @@ class Api{
     }
 }
 
-export default Api;
+module.exports = API;
 
-const s = new Api('http://api.com/api/hello');
+const s = new API('http://api.com/api/hello');
 console.log(s.isSecure()); // false
-
-s.updateUrl('http://api.com/api/hello');
-console.log(s.isSecure) // true
-
-console.log(s.url);
-console.log(s.method);
-console.log(s.secure); 
+s.updateUrl('https://api.com/api/hello');
+console.log(s.isSecure()); // true
+console.log(s.url); // https://api.com/api/hello
+console.log(s.method); // GET
+console.log(s.secure); // undefined (private field)
